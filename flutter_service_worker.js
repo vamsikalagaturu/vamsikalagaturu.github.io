@@ -2,141 +2,65 @@
 const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
-const RESOURCES = {
-  "version.json": "afffc78b9994491ee0f8cae465465cda",
-"canvaskit/canvaskit.wasm": "bf50631470eb967688cca13ee181af62",
-"canvaskit/profiling/canvaskit.wasm": "95a45378b69e77af5ed2bc72b2209b94",
-"canvaskit/profiling/canvaskit.js": "38164e5a72bdad0faa4ce740c9b8e564",
-"canvaskit/canvaskit.js": "2bc454a691c631b07a9307ac4ca47797",
-"main.dart.js": "d785d273a8dafd3ac828b15b09d0d713",
-"index.html": "5ffe387c80a6b23cbc363c6cc8bad974",
-"/": "5ffe387c80a6b23cbc363c6cc8bad974",
-"manifest.json": "6bb9f65270063aae2b79d5f001102b96",
-"flutter.js": "f85e6fb278b0fd20c349186fb46ae36d",
-".git/objects/7c/fb6f962bdb8c4b610bb1bb25b6c4361f9d20e8": "20235224869b650fc9ceb371e56bb5c9",
-".git/objects/04/8091695433f8f752e63bbec18f5c1c012f7acc": "674ea5a85fc2678fe64e5e0d343403d9",
-".git/objects/4b/9cd5bc3774a29c3fe5aafc5ba23d2cabd4a9c6": "8acf6f54407a6c0ce18081d8c7bed643",
-".git/objects/5d/3f0a06eab8921b097e9ff3fd162a43257025cc": "76b3291839b34de335bd04d6ebb4b7c3",
-".git/objects/ef/bd263bc3503e5ebc193a8051ee264b461f89bf": "37ee5cfe1b27b5ae32ba45a74648d083",
-".git/objects/76/44093409342fea870fa0525d9e408de4b9d3cc": "d64b8ed4ad27a52e9294c8777215565b",
-".git/objects/76/b1ac21d09876d0ce1539afa9fbb567a36d4878": "2f16e370ae2e324cb126aaf0d8581249",
-".git/objects/b9/2a0d854da9a8f73216c4a0ef07a0f0a44e4373": "f62d1eb7f51165e2a6d2ef1921f976f3",
-".git/objects/e0/2012ca0a73da86edd7614aebdc24f350669305": "4cb516f7f367eb8387729d8cfc7cf9b2",
-".git/objects/63/f842b3b8049899671e60e6a9036783d88238b1": "71c16515e54c889ea6cc4ad997ddc31a",
-".git/objects/79/ba7ea0836b93b3f178067bcd0a0945dbc26b3f": "f3e31aec622d6cf63f619aa3a6023103",
-".git/objects/1a/b847b818dec389fb43fb9da80637c02e27d3d3": "8af286f2a069534106d53e8c037b0a4a",
-".git/objects/2b/2c3a562b375d8b8666585df340e8f3868f38a8": "92a5ead6e841d0afb413c30b02850499",
-".git/objects/2b/b81757a404e3f73b5105c5bbbbc433e386f43d": "afd7ae9057f09cbe08fb6b52f22ad7ef",
-".git/objects/0d/cda264078feca9630cfcac4a21fc1afefe729d": "f2714beb3941049e2da2249c4b2cd469",
-".git/objects/d6/9c56691fbdb0b7efa65097c7cc1edac12a6d3e": "868ce37a3a78b0606713733248a2f579",
-".git/objects/a1/3837a12450aceaa5c8e807c32e781831d67a8f": "bfe4910ea01eb3d69e9520c3b42a0adf",
-".git/objects/9d/0ab9ec73e9ff9b9e1b5f4b23e92f4d37788bac": "42df1a75418ff51c8b7bb0f4ab0e832e",
-".git/objects/9d/667ba4acdc22cc94c1cdfd7677462e1e3060dd": "c55daa98852e19c99c6a73fda5209b68",
-".git/objects/ff/ac07066cf6e5d947963319aa445ba9d937a81a": "349d0fb0204aa9fd13a8120025a55be9",
-".git/objects/eb/9b4d76e525556d5d89141648c724331630325d": "37c0954235cbe27c4d93e74fe9a578ef",
-".git/objects/72/0fcf5415894538447fdc9b7c57c2bd81247746": "760ab80faff2793280a733784ee4195d",
-".git/objects/64/b4578a9c212f54ee224abcf9f7835639381bc8": "06aa939479aa227d21d92ee0b783ea08",
-".git/objects/d5/1a5bcd49cd32560bc868c1d5c92d548553a5ed": "0ef573370d01be3b28030cfe04ffad63",
-".git/objects/46/4ab5882a2234c39b1a4dbad5feba0954478155": "2e52a767dc04391de7b4d0beb32e7fc4",
-".git/objects/59/d2ba76ef4c0eba7718b6062574cb07f0f21a21": "33e304c4823d22121158b1779dd7297b",
-".git/objects/59/477db1ed80c3fe83cc3ffe87c246f3aa4a2192": "7446ed6600e25e5261dda11aaf41ac00",
-".git/objects/65/1d6e2ea5e6ac20d621cb17f35b5d8c631affa8": "df905b47a444de634682ed7af72aa806",
-".git/objects/25/e20cc0fd54f8204ff637d0d8fc222d0ec39d9f": "54e960f489e7cd49b474f057e498c7c4",
-".git/objects/5c/bea0046b1eded876ec1f81debe561a7bffde70": "f960a83c31077ffebfcad8dbc6973242",
-".git/objects/e6/b1a5f9da91bd82c80309695b248d3a577eee2a": "619586e4c12ce1de75d5e83e2565e9ee",
-".git/objects/e6/eccfb0f7298bfda1f3e445f46bf617a05e16bf": "01e4a6a2b5ed0b00f381ca13b48f281c",
-".git/objects/13/92af54e6afbcb368b3cead92fb04d41b763658": "4ae348c667f3640015f9e0df903ecd46",
-".git/objects/13/690fb0552d834fd351edb73b58ca24f5393b2f": "532e874c45546b5a797857c3310030e9",
-".git/objects/97/8746b5424d1212460133977131fc5ef0971abb": "3cc094294d4d3275ff02b12eff5e10c3",
-".git/objects/ba/9c14ee22b9da7912590381f297ef6eb9c5a3df": "1c2b6350c3cf43fc65af2b1b75fb2483",
-".git/objects/71/c8657214e1c087817795c601b18716b55d5176": "d1413ec46f6727b511931d50baea1a07",
-".git/objects/2c/56890c04e2fedef51d2d52c594cd34f2c55e27": "d55a5bf9212cb7a373e54dece672aa14",
-".git/objects/55/7db03de997c86a4a028e1ebd3a1ceb225be238": "8860a360209f66ea0340a3c3a9aed75b",
-".git/objects/08/ee99248bcfecc32b25423fb81a6f504555d1e4": "092ff020ce72adfc0bae9ec59d2ac9e8",
-".git/objects/b7/3a096a73c616c0c99020634f436dfaa05a3e35": "656174fb75f1c9b92a7b71b0c1c91313",
-".git/objects/b7/49bfef07473333cf1dd31e9eed89862a5d52aa": "36b4020dca303986cad10924774fb5dc",
-".git/objects/60/4df3def5438cc50de4508872646593cb30b6cb": "a17fcef6262529ebac028401334e8a55",
-".git/objects/fe/2d3b5094927e818052b7cfc09cdb8321f29beb": "0be56078ae890060c626e8a957562122",
-".git/objects/fe/c4c96efd28b1d439748ecdb5912fc6d0c0a60c": "bfcb36e1a60c37eda2cbf7ff6e7a9513",
-".git/objects/54/b9c4cd88d9b62ca574b7f21bfc36496b239231": "5803b537d02f72d8293f8073ac2c32c6",
-".git/objects/91/bb46147c01b51ee41af957667923c2c55882d0": "6311daf8c533eb447bba017313e8f932",
-".git/objects/38/c1d66548a6d9d296db3791deb8f14ab1caade1": "471c6f25bddada4d63cb36f75c21a677",
-".git/objects/74/d4f02ac34d15900778486e52789f896e2da5b8": "7359ce1c6b0ca4d5a8f4e385b90246d2",
-".git/objects/1c/e7f25385a6feab7dd77f2f04e608379b9bed71": "a6fef3d2d54c68d2f1c2f3dbc8a8b998",
-".git/objects/6a/f0c0f8a677e0739a62de8a55d36f3dddca737c": "1ebf824db7564158fe50fec3a082784f",
-".git/objects/34/e59c6378f242643a22f8ad07fc3b996296fd1d": "6901bab0b017f711fff606f575ef9842",
-".git/objects/cc/5725b315760d100f6386e6bbf09af8fe57a9f1": "29c19352d2bee0821600856656c95791",
-".git/objects/a6/9cd5660da59eb19eda2725f006da93d32e7766": "3e3f99c70d08ba4c0334832225114ded",
-".git/objects/3f/7682a6e830e34f27e98a37d386fa63b2985df4": "1acac7a08041d4c873c649de6751474c",
-".git/objects/7d/28997b811342db2bc7a0badf5c5971237b488c": "46b3e723d2bc7dbcb73e4dd807792062",
-".git/objects/03/eaddffb9c0e55fb7b5f9b378d9134d8d75dd37": "87850ce0a3dd72f458581004b58ac0d6",
-".git/objects/67/8acb8308054c718ca3a639dbdf98bbba2cfa7f": "058a6df86c6a4c7d27edd0d2063a1709",
-".git/objects/2f/b95fd10960c75dcde809cef3bd41ca27c5984a": "4509bf8df11b3fd634730963c12f2ab1",
-".git/objects/4a/b3cb3adbc8cdd7223c869a5e730b855c1fd004": "ff7880e0e218d2c23096a69c3519d506",
-".git/objects/b8/b6ce6054db4ca26f3bf03ebebb113405c80f30": "27104110f66b73eada603be5b962fe07",
-".git/objects/de/28db843d7df6ed23b8a7526f6b6b4a83425fe7": "797e4f7b3d8dced098c51679ff33e848",
-".git/objects/de/f389416dbed0beafed60b97570df8c7a4312ee": "7bdff4f8a396ac2752ad7e473fdf9fe9",
-".git/objects/45/a95cd5b253fab5f273c4e5c5d24cb5e2105d38": "3e0dfbb0b89363a15c3f684c96237be3",
-".git/objects/e5/951dfb943474a56e611d9923405cd06c2dd28d": "c6fa51103d8db5478e1a43a661f6c68d",
-".git/objects/cd/9e23ee46065a075cd30d6aea87fb32d30813df": "0a193be3a59b1935c9eb2f7f3929b4fa",
-".git/objects/cd/22076013ce8b84475eae9bb4cd6c60b5460fbe": "81c620e2d6cbe5638d6c90ee25886389",
-".git/objects/8a/aa46ac1ae21512746f852a42ba87e4165dfdd1": "1d8820d345e38b30de033aa4b5a23e7b",
-".git/objects/5a/84c8b20b301f35454cc6f1e7c107cb63dbaa37": "7fc99cf073eb1faaeb27d240f254a570",
-".git/objects/0f/004c05119da9f8b61c8c3bba3ccd1d96d9b301": "782d9f66cf4021c6522c1645bbe4443a",
-".git/objects/0f/856d9c3e17ff41e20694318bbbf126c25c2d5c": "b45500c9d237bb5677c3baf850b67576",
-".git/objects/0f/eeffed807b1ba51653d757f79f76293b2a6254": "585e665859615a0da3d40db19ae8db09",
-".git/objects/ab/0e98497a51ead7821d1da35a24968ff314e50f": "557c35fe3928eb2af403d1b3926bb9ba",
-".git/objects/88/cfd48dff1169879ba46840804b412fe02fefd6": "e42aaae6a4cbfbc9f6326f1fa9e3380c",
-".git/objects/37/b505181761e6fd52eedb063db65b03da53ae74": "e445986274fa8243eb6c8cb61bc73cea",
-".git/info/exclude": "036208b4a1ab4a235d75c181e685e5a3",
-".git/refs/remotes/origin/flutter_dev": "5dff28ccdfe03028e0ec48e7254e3b9f",
-".git/refs/remotes/origin/main": "b88dca37fc7786aa7ab51b1524c880df",
-".git/refs/heads/flutter_dev": "5dff28ccdfe03028e0ec48e7254e3b9f",
-".git/refs/heads/main": "b88dca37fc7786aa7ab51b1524c880df",
-".git/hooks/pre-push.sample": "2c642152299a94e05ea26eae11993b13",
-".git/hooks/commit-msg.sample": "579a3c1e12a1e74a98169175fb913012",
-".git/hooks/applypatch-msg.sample": "ce562e08d8098926a3862fc6e7905199",
-".git/hooks/pre-applypatch.sample": "054f9ffb8bfe04a599751cc757226dda",
-".git/hooks/fsmonitor-watchman.sample": "ea587b0fae70333bce92257152996e70",
-".git/hooks/pre-receive.sample": "2ad18ec82c20af7b5926ed9cea6aeedd",
-".git/hooks/pre-rebase.sample": "56e45f2bcbc8226d2b4200f7c46371bf",
-".git/hooks/pre-commit.sample": "305eadbbcd6f6d2567e033ad12aabbc4",
-".git/hooks/pre-merge-commit.sample": "39cb268e2a85d436b9eb6f47614c3cbc",
-".git/hooks/push-to-checkout.sample": "c7ab00c7784efeadad3ae9b228d4b4db",
-".git/hooks/update.sample": "647ae13c682f7827c22f5fc08a03674e",
-".git/hooks/prepare-commit-msg.sample": "2b5c047bdb474555e1787db32b2d2fc5",
-".git/hooks/post-update.sample": "2b7ea5cee3c49ff53d41e00785eb974c",
-".git/ORIG_HEAD": "0d644bbf4ade302385476f5c85938503",
-".git/logs/refs/remotes/origin/flutter_dev": "3cdbca8453e8abefd4f5e0df4683c51e",
-".git/logs/refs/remotes/origin/main": "6387583b74809b242b7efb44c8be0dee",
-".git/logs/refs/heads/flutter_dev": "e387926a4ce17af2e0bff0811783b755",
-".git/logs/refs/heads/main": "372a27fa01e28fe0ea09066861e02959",
-".git/logs/HEAD": "64148ee4cbae4ba78f846e825596c69e",
-".git/config": "33e465990be796a576d31f59efe5a187",
-".git/HEAD": "cf7dd3ce51958c5f13fece957cc417fb",
-".git/FETCH_HEAD": "0ed416c3e7d46d020b94e4a4586cf25c",
-".git/index": "796199d9dd20c1c5413011dfc2f99671",
-".git/description": "a0a7c3fff21f2aea3cfa1d0316dd816c",
-".git/COMMIT_EDITMSG": "af9caaf1b5cffd900b92e0cab505b944",
-"icons/logo.png": "280718a57775ad1d4641bedd448ef945",
-"assets/shaders/ink_sparkle.frag": "a51d1cb92fe46d70291c41ddfda20702",
-"assets/AssetManifest.json": "69b4a6172bf5730209300c76efc5625a",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"assets/NOTICES": "af079b22d64b59e7eb5cd3b8c95ceedc",
-"assets/FontManifest.json": "7b3b848aed509ecd684cc2f89aaf4e31",
-"assets/fonts/CustomIcons.ttf": "8712057f6631b211a287a54a9cbe77db",
-"assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
-"assets/assets/images/dp.jpg": "3e33ea4da0a29eac8203259027a690e2",
-"assets/assets/images/italy_blur.jpg": "fdd9af7654c6f24b6717bdf61f9eccb8"
-};
 
+const RESOURCES = {"canvaskit/skwasm.wasm": "6711032e17bf49924b2b001cef0d3ea3",
+"canvaskit/canvaskit.js": "76f7d822f42397160c5dfc69cbc9b2de",
+"canvaskit/canvaskit.wasm": "f48eaf57cada79163ec6dec7929486ea",
+"canvaskit/profiling/canvaskit.js": "38164e5a72bdad0faa4ce740c9b8e564",
+"canvaskit/profiling/canvaskit.wasm": "95a45378b69e77af5ed2bc72b2209b94",
+"canvaskit/skwasm.worker.js": "19659053a277272607529ef87acf9d8a",
+"canvaskit/skwasm.js": "1df4d741f441fa1a4d10530ced463ef8",
+"canvaskit/chromium/canvaskit.js": "8c8392ce4a4364cbb240aa09b5652e05",
+"canvaskit/chromium/canvaskit.wasm": "fc18c3010856029414b70cae1afc5cd9",
+"assets/assets/images/dp.jpg": "3e33ea4da0a29eac8203259027a690e2",
+"assets/assets/images/italy_blur.jpg": "fdd9af7654c6f24b6717bdf61f9eccb8",
+"assets/FontManifest.json": "7b3b848aed509ecd684cc2f89aaf4e31",
+"assets/fonts/MaterialIcons-Regular.otf": "62ec8220af1fb03e1c20cfa38781e17e",
+"assets/fonts/CustomIcons.ttf": "50590ab482b67e2e6dc5713a47aa3aff",
+"assets/NOTICES": "e7625c8a862d0a1c1209c1071c090e3c",
+"assets/AssetManifest.json": "69b4a6172bf5730209300c76efc5625a",
+"assets/shaders/ink_sparkle.frag": "f8b80e740d33eb157090be4e995febdf",
+"assets/AssetManifest.smcbin": "010efddac5a6c25188205ec1ed12063a",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "57d849d738900cfd590e9adc7e208250",
+"flutter.js": "6fef97aeca90b426343ba6c5c9dc5d4a",
+"manifest.json": "6bb9f65270063aae2b79d5f001102b96",
+"index.html": "6a84d137ce551f969bc87faa69bc269c",
+"/": "6a84d137ce551f969bc87faa69bc269c",
+"version.json": "afffc78b9994491ee0f8cae465465cda",
+"main.dart.js": "0ac0fbaef97b6bbf44ea4fbaa95a4cc6",
+"icons/logo.png": "280718a57775ad1d4641bedd448ef945",
+".git/HEAD": "cf7dd3ce51958c5f13fece957cc417fb",
+".git/logs/HEAD": "857954ab5d2143871a22dce24c3e1eae",
+".git/logs/refs/remotes/origin/HEAD": "857954ab5d2143871a22dce24c3e1eae",
+".git/logs/refs/heads/main": "857954ab5d2143871a22dce24c3e1eae",
+".git/refs/remotes/origin/HEAD": "98b16e0b650190870f1b40bc8f4aec4e",
+".git/refs/heads/main": "9ae23866531bb07ddf07662725356448",
+".git/description": "a0a7c3fff21f2aea3cfa1d0316dd816c",
+".git/info/exclude": "036208b4a1ab4a235d75c181e685e5a3",
+".git/config": "1a822a2fbbb4466b4a532e1eb7e96637",
+".git/hooks/pre-push.sample": "3c5989301dd4b949dfa1f43738a22819",
+".git/hooks/commit-msg.sample": "579a3c1e12a1e74a98169175fb913012",
+".git/hooks/post-update.sample": "2b7ea5cee3c49ff53d41e00785eb974c",
+".git/hooks/pre-applypatch.sample": "054f9ffb8bfe04a599751cc757226dda",
+".git/hooks/pre-rebase.sample": "56e45f2bcbc8226d2b4200f7c46371bf",
+".git/hooks/pre-receive.sample": "2ad18ec82c20af7b5926ed9cea6aeedd",
+".git/hooks/pre-merge-commit.sample": "39cb268e2a85d436b9eb6f47614c3cbc",
+".git/hooks/pre-commit.sample": "e4db8c12ee125a8a085907b757359ef0",
+".git/hooks/update.sample": "517f14b9239689dff8bda3022ebd9004",
+".git/hooks/fsmonitor-watchman.sample": "db4d62db2039e4bec38baa7567788284",
+".git/hooks/prepare-commit-msg.sample": "2b5c047bdb474555e1787db32b2d2fc5",
+".git/hooks/applypatch-msg.sample": "ce562e08d8098926a3862fc6e7905199",
+".git/objects/pack/pack-7071f13906094c1970ad2d63b068b0a98b7cb5e6.pack": "801fb766762c4483b39bc7973eda6f34",
+".git/objects/pack/pack-7071f13906094c1970ad2d63b068b0a98b7cb5e6.idx": "4a9e374b835356ff1813ea85410017d6",
+".git/packed-refs": "a71ae24115002ce2bd80f78a298a94bc",
+".git/index": "81223381b3daa48cb4eeeb90cebefc77"};
 // The application shell files that are downloaded before a service worker can
 // start.
-const CORE = [
-  "main.dart.js",
+const CORE = ["main.dart.js",
 "index.html",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
+
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {
   self.skipWaiting();
@@ -147,7 +71,6 @@ self.addEventListener("install", (event) => {
     })
   );
 });
-
 // During activate, the cache is populated with the temp files downloaded in
 // install. If this service worker is upgrading from one with a saved
 // MANIFEST, then use this to retain unchanged resource files.
@@ -169,6 +92,8 @@ self.addEventListener("activate", function(event) {
         await caches.delete(TEMP);
         // Save the manifest to make future upgrades efficient.
         await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
+        // Claim client to enable caching on first launch
+        self.clients.claim();
         return;
       }
       var oldManifest = await manifest.json();
@@ -194,6 +119,8 @@ self.addEventListener("activate", function(event) {
       await caches.delete(TEMP);
       // Save the manifest to make future upgrades efficient.
       await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
+      // Claim client to enable caching on first launch
+      self.clients.claim();
       return;
     } catch (err) {
       // On an unhandled exception the state of the cache cannot be guaranteed.
@@ -204,7 +131,6 @@ self.addEventListener("activate", function(event) {
     }
   }());
 });
-
 // The fetch handler redirects requests for RESOURCE files to the service
 // worker cache.
 self.addEventListener("fetch", (event) => {
@@ -244,7 +170,6 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
-
 self.addEventListener('message', (event) => {
   // SkipWaiting can be used to immediately activate a waiting service worker.
   // This will also require a page refresh triggered by the main worker.
@@ -257,7 +182,6 @@ self.addEventListener('message', (event) => {
     return;
   }
 });
-
 // Download offline will check the RESOURCES for all files not in the cache
 // and populate them.
 async function downloadOffline() {
@@ -278,7 +202,6 @@ async function downloadOffline() {
   }
   return contentCache.addAll(resources);
 }
-
 // Attempt to download the resource online before falling back to
 // the offline cache.
 function onlineFirst(event) {
