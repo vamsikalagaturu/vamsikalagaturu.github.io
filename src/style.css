@@ -332,6 +332,35 @@ html[data-theme="dark"] .theme-toggle__moon { display: none; }
 }
 .post__back a:hover { color: var(--text); border-bottom-color: var(--text); }
 
+/* 404 only: the arm is drawn straight because full stretch is where it fails */
+.arm {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 2.2rem 0 1.6rem;
+}
+.arm > * {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.arm__base,
+.arm__link { stroke: var(--text); }
+.arm__joint { stroke: var(--text); fill: var(--bg); }
+.arm__reach { stroke: var(--muted); stroke-dasharray: 2 6; }
+.arm__gap { stroke: var(--muted); stroke-dasharray: 2 5; }
+.arm__target { stroke: var(--muted); }
+
+/* a solver line, in the voice of a terminal rather than the page */
+.mono-note {
+  margin: 0 0 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
 /* contact — mono sets the obfuscated address apart from the prose */
 .email {
   margin: 1.6rem 0 0;

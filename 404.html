@@ -4,19 +4,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Notes on robotics software and the models underneath it, by Vamsi Kalagaturu."
-    />
-    <meta name="author" content="Vamsi Kalagaturu" />
-    <meta property="og:title" content="Blog — Vamsi Kalagaturu" />
-    <meta
-      property="og:description"
-      content="Notes on robotics software and the models underneath it."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://vamsi.sh/blog/" />
-    <title>Blog — Vamsi Kalagaturu</title>
+    <meta name="robots" content="noindex" />
+    <title>Not found — Vamsi Kalagaturu</title>
     <link rel="stylesheet" href="/src/style.css" />
     <script>
       (function () {
@@ -48,7 +37,7 @@
               <li><a href="/#contact">Contact</a></li>
             </ul>
           </details>
-          <a href="/blog/" class="is-active">Blog</a>
+          <a href="/blog/">Blog</a>
         </nav>
         <div class="search" role="search">
           <input
@@ -81,15 +70,30 @@
 
     <main class="shell" id="top">
       <section class="intro">
-        <h1>Blog</h1>
+        <h1>Out of workspace</h1>
         <p class="intro__text">
-          Notes on robotics software and the models underneath them.
+          This pose is unreachable. The page may have moved, or the link that
+          brought you here may be wrong. Either way, the arm stops here.
         </p>
-      </section>
-
-      <section class="section">
-        <h2 class="section__title">Posts</h2>
-        <p class="prose">No posts yet.</p>
+        <svg class="arm" viewBox="0 0 320 180" role="img" aria-labelledby="armTitle">
+          <title id="armTitle">
+            A two-link arm at full stretch, its target outside the reach envelope
+          </title>
+          <path class="arm__reach" d="M40 0 A140 140 0 0 1 180 140" />
+          <line class="arm__base" x1="16" y1="140" x2="64" y2="140" />
+          <line class="arm__link" x1="40" y1="140" x2="106" y2="117" />
+          <line class="arm__link" x1="106" y1="117" x2="172" y2="94" />
+          <path class="arm__link" d="M170 88 L174 100 M174 100 L183 97 M170 88 L179 85" />
+          <circle class="arm__joint" cx="40" cy="140" r="4" />
+          <circle class="arm__joint" cx="106" cy="117" r="3.5" />
+          <line class="arm__gap" x1="192" y1="88" x2="252" y2="66" />
+          <path class="arm__target" d="M262 54 l12 12 M274 54 l-12 12" />
+        </svg>
+        <p class="mono-note">ik: no solution for the requested pose</p>
+        <p class="intro__links">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+        </p>
       </section>
     </main>
 

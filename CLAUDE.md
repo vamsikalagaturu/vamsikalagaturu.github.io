@@ -32,7 +32,8 @@ marquees, or scroll animations. If a change adds decoration, it is probably wron
   fades back in past it. It keeps its layout space, so the nav never shifts.
 - **Adding a post:** copy `blog/_template.html` to `blog/<slug>.html`, keep the
   `<article class="post">` shape (`h1`, `.post__date`, `.prose` paragraphs,
-  `.post__heading` subheads), then replace the "No posts yet." line in `blog/index.html`
+  `.post__heading` subheads), point its `og:url` at the real slug, then replace the
+  "No posts yet." line in `blog/index.html`
   with a `.row` linking it (year in `.row__year`, title in an `h3 a`). Vite builds any
   `blog/*.html` on its own, except `_underscored` files, which stay unpublished templates.
   Post pages carry no instructions in their markup; this rule is the instructions.
@@ -55,5 +56,17 @@ marquees, or scroll animations. If a change adds decoration, it is probably wron
 - **Bump the footer's `Last updated <D Month YYYY>` whenever page content changes**, keeping
   the `<time datetime="YYYY-MM-DD">` attribute in sync with the visible text. It is a
   hand-written literal, not a build timestamp, so it only means something if it is edited.
+- `404.html` is a real page in the build (GitHub Pages serves it for unknown paths). It
+  carries the same header as everything else, and `noindex` instead of `og:` tags. It is
+  the one page allowed some character: an inline SVG two-link arm at full stretch with the
+  target outside its reach envelope, under "Out of workspace". The geometry is honest (the
+  arm is straight because that is where reach runs out) and it is hairlines in `--text` and
+  `--muted` only, no fills, no animation. Do not spread this to other pages.
+- `npm run dev`/`preview` would answer unknown paths with `index.html`, hiding the 404
+  locally; `appType: 'mpa'` plus the `pages-404-fallback` plugin in `vite.config.js`
+  reproduces the Pages behaviour instead. The plugin must run before vite's own 404
+  handler and let real files pass, which is why it stats the path.
+- Canonical host is `vamsi.sh`; the `vamsikalagaturu.github.io` URL 301s to it, so
+  `og:url` always points at `vamsi.sh`.
 - Icon libraries (Font Awesome, Lucide) were considered and rejected. The page has no icons
   beyond the theme toggle's inline sun/moon.
