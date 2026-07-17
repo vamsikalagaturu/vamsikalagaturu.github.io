@@ -36,13 +36,36 @@
       <div class="shell nav__inner">
         <a href="#top" class="brand">Vamsi Kalagaturu</a>
         <nav class="nav__links" aria-label="Primary">
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-          <a href="#tools">Tools</a>
-          <a href="#awards">Awards</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <details class="menu">
+            <summary class="menu__summary">Sections</summary>
+            <ul class="menu__list">
+              <li><a href="#research">Research</a></li>
+              <li><a href="#publications">Publications</a></li>
+              <li><a href="#tools">Tools</a></li>
+              <li><a href="#awards">Awards</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </details>
+          <a href="/blog/">Blog</a>
         </nav>
+        <div class="search" role="search">
+          <input
+            class="search__input"
+            id="searchInput"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            autocomplete="off"
+          />
+          <div class="search__panel" id="searchPanel" hidden>
+            <div class="search__scopes">
+              <button type="button" class="search__scope is-active" data-scope="page">This page</button>
+              <button type="button" class="search__scope" data-scope="site">All pages</button>
+            </div>
+            <div class="search__results" id="searchResults"></div>
+          </div>
+        </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
           <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.5" />

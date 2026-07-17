@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A first post." />
+    <meta name="author" content="Vamsi Kalagaturu" />
+    <meta property="og:title" content="A first post — Vamsi Kalagaturu" />
+    <meta property="og:description" content="A first post." />
+    <meta property="og:type" content="article" />
+    <title>A first post — Vamsi Kalagaturu</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script>
+      (function () {
+        document.documentElement.classList.add('js');
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t)
+            t = window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="shell nav__inner">
+        <a href="/" class="brand">Vamsi Kalagaturu</a>
+        <nav class="nav__links" aria-label="Primary">
+          <details class="menu">
+            <summary class="menu__summary">Sections</summary>
+            <ul class="menu__list">
+              <li><a href="/#research">Research</a></li>
+              <li><a href="/#publications">Publications</a></li>
+              <li><a href="/#tools">Tools</a></li>
+              <li><a href="/#awards">Awards</a></li>
+              <li><a href="/#about">About</a></li>
+              <li><a href="/#contact">Contact</a></li>
+            </ul>
+          </details>
+          <a href="/blog/" class="is-active">Blog</a>
+        </nav>
+        <div class="search" role="search">
+          <input
+            class="search__input"
+            id="searchInput"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            autocomplete="off"
+          />
+          <div class="search__panel" id="searchPanel" hidden>
+            <div class="search__scopes">
+              <button type="button" class="search__scope is-active" data-scope="page">This page</button>
+              <button type="button" class="search__scope" data-scope="site">All pages</button>
+            </div>
+            <div class="search__results" id="searchResults"></div>
+          </div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.5" />
+            <path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5 5l1.8 1.8M17.2 17.2 19 19M19 5l-1.8 1.8M6.8 17.2 5 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="shell" id="top">
+      <article class="post">
+        <h1>A first post</h1>
+        <p class="post__date"><time datetime="2026-07-17">17 July 2026</time></p>
+
+        <p class="prose">Placeholder. Replace this with the post.</p>
+
+        <h2 class="post__heading">A subheading</h2>
+        <p class="prose">Placeholder.</p>
+      </article>
+
+      <p class="post__back"><a href="/blog/">Back to all posts</a></p>
+    </main>
+
+    <footer class="shell footer">
+      <span>&copy; Vamsi Kalagaturu</span>
+      <span class="footer__updated">
+        Last updated <time datetime="2026-07-17">17 July 2026</time>
+      </span>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

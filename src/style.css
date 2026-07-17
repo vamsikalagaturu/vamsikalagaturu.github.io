@@ -44,6 +44,8 @@ html[data-theme="dark"] {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
+  /* short pages (blog) would otherwise centre 7.5px right of the scrolling ones */
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -89,8 +91,16 @@ a { color: var(--link); text-decoration: none; }
   gap: 1.5rem;
   height: 64px;
 }
-.brand { font-weight: 550; letter-spacing: -0.02em; white-space: nowrap; }
-.nav__links { display: flex; gap: 1.1rem; white-space: nowrap; }
+/* the auto margin keeps links, search, and toggle grouped on the right */
+.brand { font-weight: 550; letter-spacing: -0.02em; white-space: nowrap; margin-right: auto; }
+/* the hero already says the name; keep the space so nothing shifts on fade */
+html.js .brand { transition: opacity .2s ease; }
+html.js .brand.is-hidden {
+  opacity: 0;
+  visibility: hidden; /* also takes it out of the tab order */
+  transition: opacity .2s ease, visibility 0s .2s;
+}
+.nav__links { display: flex; align-items: center; gap: 1.3rem; white-space: nowrap; }
 .nav__links a {
   font-size: 0.9rem;
   color: var(--muted);
@@ -98,6 +108,119 @@ a { color: var(--link); text-decoration: none; }
 }
 .nav__links a:hover,
 .nav__links a.is-active { color: var(--text); }
+
+/* search — JS-only, so JS reveals it (same deal as the theme toggle) */
+.search { display: none; }
+html.js .search {
+  display: block;
+  position: relative;
+  flex: 0 1 150px;
+  min-width: 0;
+}
+.search__input {
+  width: 100%;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.25rem 0;
+  outline: none;
+  transition: border-color .15s ease;
+}
+.search__input::placeholder { color: var(--muted); }
+.search__input:focus { border-bottom-color: var(--text); }
+.search__panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0; /* sits near the right edge, so hang the panel off that side */
+  z-index: 20;
+  width: min(380px, 86vw);
+  max-height: min(60vh, 420px);
+  overflow-y: auto;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding-bottom: 0.4rem;
+}
+.search__panel[hidden] { display: none; }
+.search__scopes {
+  display: flex;
+  gap: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+.search__scope {
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .15s ease;
+}
+.search__scope:hover,
+.search__scope.is-active { color: var(--text); }
+.search__group {
+  margin: 0;
+  padding: 0.7rem 0.9rem 0.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.search__hit { display: block; padding: 0.45rem 0.9rem; }
+.search__hit:hover { background: color-mix(in srgb, var(--text) 6%, transparent); }
+.search__hit-title { display: block; font-size: 0.9rem; color: var(--text); }
+.search__hit-snip {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.search__hit-snip mark {
+  background: none; /* no accent colour, so weight carries the match */
+  color: var(--text);
+  font-weight: 600;
+}
+.search__empty {
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* section menu — <details> so it opens without JS */
+.menu { position: relative; }
+.menu__summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: color .15s ease;
+}
+.menu__summary::-webkit-details-marker { display: none; }
+.menu__summary:hover,
+.menu[open] .menu__summary { color: var(--text); }
+.menu__list {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: -0.9rem;
+  z-index: 20;
+  min-width: 160px;
+  margin: 0;
+  padding: 0.4rem 0;
+  list-style: none;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.menu__list a { display: block; padding: 0.35rem 0.9rem; }
 
 /* the toggle only does something with JS, so JS reveals it */
 .theme-toggle { display: none; }
@@ -196,6 +319,19 @@ html[data-theme="dark"] .theme-toggle__moon { display: none; }
 }
 .row__meta a:hover { border-bottom-color: var(--text); }
 
+/* blog post */
+.post { padding-block: clamp(3.5rem, 10vw, 6rem) 0; max-width: 58ch; }
+.post h1 { font-size: 2rem; margin-bottom: 0.4rem; }
+.post__date { color: var(--muted); margin: 0; }
+.post__heading { font-size: 1.15rem; margin-top: 2.4rem; }
+.post__back { margin-top: 3rem; font-size: 0.9rem; }
+.post__back a {
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  transition: color .15s ease, border-color .15s ease;
+}
+.post__back a:hover { color: var(--text); border-bottom-color: var(--text); }
+
 /* contact — mono sets the obfuscated address apart from the prose */
 .email {
   margin: 1.6rem 0 0;
@@ -218,7 +354,13 @@ html[data-theme="dark"] .theme-toggle__moon { display: none; }
 }
 
 @media (max-width: 640px) {
-  .nav__links { display: none; }
+  /* the dropdown fits where the six links did not; search takes its own row */
+  .nav__inner { gap: 0.9rem 1rem; flex-wrap: wrap; height: auto; padding-block: 0.7rem; }
+  .brand { order: 0; }
+  .nav__links { gap: 1rem; order: 1; }
+  html.js .theme-toggle { order: 2; }
+  html.js .search { order: 3; flex-basis: 100%; }
+  html { scroll-padding-top: 128px; }
   .row { grid-template-columns: 1fr; gap: 0.3rem; }
   .row--tight { gap: 0; }
 }
