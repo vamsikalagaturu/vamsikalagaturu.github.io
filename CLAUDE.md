@@ -29,7 +29,9 @@ marquees, or scroll animations. If a change adds decoration, it is probably wron
 - The nav's section menu is a `<details>` element, so it opens and closes without JS; the
   JS only adds dismiss-on-outside-click and Escape. Do not rebuild it as a JS dropdown.
 - The brand fades out while a page's hero `h1` repeats it verbatim (the home page) and
-  fades back in past it. It keeps its layout space, so the nav never shifts.
+  fades back in past it. It keeps its layout space, so the nav never shifts. On the home
+  page it ships with `is-hidden` already in the markup, so it never flashes before the
+  observer runs; `is-hidden` only bites under `html.js`, so the no-JS page still shows it.
 - **Adding a post:** copy `blog/_template.html` to `blog/<slug>.html`, keep the
   `<article class="post">` shape (`h1`, `.post__date`, `.prose` paragraphs,
   `.post__heading` subheads), point its `og:url` at the real slug, then replace the

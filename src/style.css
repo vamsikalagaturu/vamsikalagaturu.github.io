@@ -247,7 +247,7 @@ html[data-theme="dark"] .theme-toggle__moon { display: none; }
 .intro h1 { font-size: 2rem; margin-bottom: 0.4rem; }
 .intro__role { color: var(--muted); margin: 0 0 1.6rem; }
 .intro__text { margin: 0 0 1.6rem; max-width: 58ch; }
-.intro__links { display: flex; gap: 1.2rem; margin: 0; }
+.intro__links { display: flex; gap: 1.2rem; margin: 2rem 0 0; }
 .intro__links a {
   font-size: 0.9rem;
   color: var(--muted);
@@ -279,7 +279,8 @@ html[data-theme="dark"] .theme-toggle__moon { display: none; }
 }
 .prose a:hover,
 .intro__role a:hover { border-bottom-color: var(--text); }
-.prose + .list { margin-top: 2.2rem; }
+.prose + .list,
+.intro__links + .list { margin-top: 2.2rem; }
 
 /* shared list rows */
 .list { list-style: none; margin: 0; padding: 0; }

@@ -35,7 +35,8 @@
   <body>
     <header class="nav">
       <div class="shell nav__inner">
-        <a href="#top" class="brand">Vamsi Kalagaturu</a>
+        <!-- starts hidden: the hero below says the name, and the class avoids a flash before JS -->
+        <a href="#top" class="brand is-hidden">Vamsi Kalagaturu</a>
         <nav class="nav__links" aria-label="Primary">
           <details class="menu">
             <summary class="menu__summary">Sections</summary>
@@ -44,7 +45,8 @@
               <li><a href="#publications">Publications</a></li>
               <li><a href="#tools">Tools</a></li>
               <li><a href="#awards">Awards</a></li>
-              <li><a href="#about">About</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#education">Education</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </details>
@@ -87,10 +89,16 @@
           <a href="https://secoro.uni-bremen.de" target="_blank" rel="noopener">SECORO</a>
           — University of Bremen
         </p>
-        <p class="intro__text">
-          I build composable, reusable models for contact-rich mobile
-          manipulation: building blocks that generate a robot's skill code for
-          tasks where geometry, contact, and uncertainty all matter at once.
+        <p class="prose">
+          I am a PhD student with
+          <a href="https://secoro.uni-bremen.de" target="_blank" rel="noopener">SECORO</a>
+          at the University of Bremen. I work on modelling complex, contact-rich
+          manipulation tasks for mobile manipulators as geometry and force
+          constraints. The models are graph-structured, so the pieces of a task
+          compose and carry over to new tasks and platforms instead of being
+          rewritten. From those models, the tooling generates
+          correct-by-construction code, validated the same way in simulation and
+          on real hardware.
         </p>
         <p class="intro__links">
           <a href="https://github.com/vamsikalagaturu" target="_blank" rel="noopener">GitHub</a>
@@ -98,6 +106,20 @@
           <a href="https://orcid.org/0009-0001-3279-2976" target="_blank" rel="noopener">ORCID</a>
           <a href="https://www.linkedin.com/in/vamsikalagaturu/" target="_blank" rel="noopener">LinkedIn</a>
         </p>
+        <dl class="list">
+          <div class="row row--tight">
+            <dt>Based in</dt>
+            <dd>Bremen, Germany</dd>
+          </div>
+          <div class="row row--tight">
+            <dt>Works with</dt>
+            <dd>C++ · C · Python · ROS · RDF/JSON-LD · JavaScript</dd>
+          </div>
+          <div class="row row--tight">
+            <dt>Focus</dt>
+            <dd>Robotics manipulation · Integration · Software modelling</dd>
+          </div>
+        </dl>
       </section>
 
       <section class="section" id="research">
@@ -233,58 +255,74 @@
         </ul>
       </section>
 
-      <section class="section" id="about">
-        <h2 class="section__title">About</h2>
-        <p class="prose">
-          I build the software and control that make robot manipulation
-          dependable. Most manipulation stacks are bespoke: a controller written
-          for one task on one platform, which breaks the moment the robot
-          actually touches something. My work replaces that with composable
-          models that transfer across tasks and platforms, generate the skill
-          code themselves, and hold up under real geometry, real contact, and
-          real uncertainty.
-        </p>
-        <p class="prose">
-          I do this with the
-          <a href="https://secoro.uni-bremen.de" target="_blank" rel="noopener">SECORO</a>
-          group at the University of Bremen, after an
-          M.Sc. in Autonomous Systems at Bonn-Rhein-Sieg University and
-          competition robotics with b-it-bots at RoboCup@Work. I care about
-          robotics that is reusable and honest about the physical world, and I
-          write the code that earns that claim on real hardware.
-        </p>
-        <dl class="list">
-          <div class="row row--tight">
-            <dt>Now</dt>
-            <dd>
-              PhD student and Research Engineer,
-              <a href="https://secoro.uni-bremen.de" target="_blank" rel="noopener">SECORO</a>
-              — University of Bremen
-            </dd>
-          </div>
-          <div class="row row--tight">
-            <dt>Education</dt>
-            <dd>
-              <a href="https://www.h-brs.de/en/inf/study/master/autonomous-systems" target="_blank" rel="noopener">M.Sc. Autonomous Systems</a>,
-              Bonn-Rhein-Sieg University
-            </dd>
-          </div>
-          <div class="row row--tight">
-            <dt>Based in</dt>
-            <dd>Bremen, Germany</dd>
-          </div>
-          <div class="row row--tight">
-            <dt>Works with</dt>
-            <dd>C++ · C · Python · ROS · JavaScript</dd>
-          </div>
-          <div class="row row--tight">
-            <dt>Focus</dt>
-            <dd>
-              Robotics manipulation · Integration · Perception · Software
-              modelling · RDF
-            </dd>
-          </div>
-        </dl>
+      <section class="section" id="experience">
+        <h2 class="section__title">Experience</h2>
+        <ul class="list">
+          <li class="row">
+            <span class="row__year">2024–present</span>
+            <div>
+              <h3>Research Engineer</h3>
+              <p class="row__meta">
+                <a href="https://secoro.uni-bremen.de" target="_blank" rel="noopener">SECORO</a>,
+                University of Bremen · Bremen, Germany
+              </p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="row__year">2022–2024</span>
+            <div>
+              <h3>Student Research Assistant</h3>
+              <p class="row__meta">
+                <a href="https://www.uni-bonn.de/en" target="_blank" rel="noopener">University of Bonn</a>
+                · Bonn, Germany · Part-time
+              </p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="row__year">2022–2024</span>
+            <div>
+              <h3>Technical Team Member</h3>
+              <p class="row__meta">
+                <a href="https://www.h-brs.de/en/a2s/b-it-bots" target="_blank" rel="noopener">b-it-bots</a>,
+                Bonn-Rhein-Sieg University · Sankt Augustin, Germany · Perception,
+                Manipulation and Integration for RoboCup@Work
+              </p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="row__year">2019–2021</span>
+            <div>
+              <h3>Security Analyst</h3>
+              <p class="row__meta">Philips · India</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" id="education">
+        <h2 class="section__title">Education</h2>
+        <ul class="list">
+          <li class="row">
+            <span class="row__year">2021–2024</span>
+            <div>
+              <h3>
+                <a href="https://www.h-brs.de/en/inf/study/master/autonomous-systems" target="_blank" rel="noopener">
+                  M.Sc. Autonomous Systems
+                </a>
+              </h3>
+              <p class="row__meta">
+                Bonn-Rhein-Sieg University of Applied Sciences · Sankt Augustin, Germany
+              </p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="row__year">2015–2019</span>
+            <div>
+              <h3>B.Tech. Electronics and Communication Engineering</h3>
+              <p class="row__meta">Vellore Institute of Technology · Vellore, India</p>
+            </div>
+          </li>
+        </ul>
       </section>
 
       <section class="section" id="contact">
